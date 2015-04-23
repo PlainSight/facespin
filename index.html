@@ -49,7 +49,12 @@
 			}
 
 			$(window).load(function() {
+				try {
 					$($('img')[0]).faceDetection();
+				} catch (e) {
+					
+				}
+					
 				processImages();
 
 			});
