@@ -21,9 +21,7 @@
 
 			function processImages() {
 
-				$($('img')[0]).faceDetection({ complete: function(faces) 
-					{ console.log(faces); }
-				});
+				
 
 				// for(var i = 0; i < images.length; i++) {
 
@@ -51,7 +49,12 @@
 			}
 
 			$(window).load(function() {
-				processImages();
+
+				$($('img')[0]).faceDetection({ complete: function(faces) 
+					{ console.log(faces); }
+				});
+
+				//processImages();
 
 			});
 
