@@ -19,39 +19,38 @@
 			var mastercontext = mastercanvas.getContext('2d');
 			var tempcontext = tempcanvas.getContext('2d');
 
+			function processImages() {
+
+				$($('img')[0]).faceDetection({ complete: function(faces) 
+					{ console.log(faces); }
+				});
+
+				// for(var i = 0; i < images.length; i++) {
+
+				// 	mastercontext.drawImage(images[i], 0, 0);
+
+				// 	$(images[i]).faceDetection({ complete: function(faces) {
+				// 		console.log(faces);
+				// 		//for each face create a new image and stuff
+
+				// 		for(var i = 0; i < faces.length; i++) {
+				// 			tempcanvas.width = face.width;
+				// 			tempcanvas.height = face.height;
+
+				// 			tempcanvas.drawImage(mastercanvas, face.x, face.y, face.width, face.height);
+
+				// 			var newimg = $(document.createElement('img'));
+				// 			newimg.attr('src', tempcanvas.toDataURL("image/png"));
+				// 			newimg.appendTo('img');
+
+				// 		}
+						
+				// 	}}); 
+
+				// }
+			}
+
 			$(window).load(function() {
-
-				function processImages() {
-
-					$($('img')[0]).faceDetection({ complete: function(faces) 
-						{ console.log(faces); }
-					});
-
-					// for(var i = 0; i < images.length; i++) {
-
-					// 	mastercontext.drawImage(images[i], 0, 0);
-
-					// 	$(images[i]).faceDetection({ complete: function(faces) {
-					// 		console.log(faces);
-					// 		//for each face create a new image and stuff
-
-					// 		for(var i = 0; i < faces.length; i++) {
-					// 			tempcanvas.width = face.width;
-					// 			tempcanvas.height = face.height;
-
-					// 			tempcanvas.drawImage(mastercanvas, face.x, face.y, face.width, face.height);
-
-					// 			var newimg = $(document.createElement('img'));
-					// 			newimg.attr('src', tempcanvas.toDataURL("image/png"));
-					// 			newimg.appendTo('img');
-
-					// 		}
-							
-					// 	}}); 
-
-					// }
-				}
-
 				processImages();
 
 			});
