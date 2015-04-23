@@ -49,10 +49,11 @@
 			}
 
 			$(window).load(function() {
-
-				$($('img')[0]).faceDetection({ complete: function(faces) 
-					{ console.log(faces); }
-				});
+				setTimeout(function() {
+					$($('img')[0]).faceDetection({ complete: function(faces) 
+						{ console.log(faces); }
+					});
+				}, 2000);
 
 				//processImages();
 
