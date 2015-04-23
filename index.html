@@ -22,36 +22,34 @@
 			$(function() {
 
 				function processImages() {
-					var images = $('img');
 
-					console.log(images);
+					$($('img')[0]).faceDetection({ complete: function(faces) 
+						{ console.log(faces); }
+					});
 
-					for(var i = 0; i < images.length; i++) {
+					// for(var i = 0; i < images.length; i++) {
 
-						console.log(images[i]);
-						console.log($(images[i]));
+					// 	mastercontext.drawImage(images[i], 0, 0);
 
-						mastercontext.drawImage(images[i], 0, 0);
+					// 	$(images[i]).faceDetection({ complete: function(faces) {
+					// 		console.log(faces);
+					// 		//for each face create a new image and stuff
 
-						$(images[i]).faceDetection({ complete: function(faces) {
-							console.log(faces);
-							//for each face create a new image and stuff
+					// 		for(var i = 0; i < faces.length; i++) {
+					// 			tempcanvas.width = face.width;
+					// 			tempcanvas.height = face.height;
 
-							for(var i = 0; i < faces.length; i++) {
-								tempcanvas.width = face.width;
-								tempcanvas.height = face.height;
+					// 			tempcanvas.drawImage(mastercanvas, face.x, face.y, face.width, face.height);
 
-								tempcanvas.drawImage(mastercanvas, face.x, face.y, face.width, face.height);
+					// 			var newimg = $(document.createElement('img'));
+					// 			newimg.attr('src', tempcanvas.toDataURL("image/png"));
+					// 			newimg.appendTo('img');
 
-								var newimg = $(document.createElement('img'));
-								newimg.attr('src', tempcanvas.toDataURL("image/png"));
-								newimg.appendTo('img');
-
-							}
+					// 		}
 							
-						}}); 
+					// 	}}); 
 
-					}
+					// }
 				}
 
 				processImages();
