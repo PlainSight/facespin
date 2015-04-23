@@ -19,40 +19,43 @@
 			var mastercontext = mastercanvas.getContext('2d');
 			var tempcontext = tempcanvas.getContext('2d');
 
+			window.onload = function() {
 
-			function processImage(img) {
-				console.log(img);
-				mastercontext.drawImage(img, 0, 0);
+				function processImage(img) {
+					console.log(img);
+					mastercontext.drawImage(img, 0, 0);
 
-				$(img).faceDetection({ complete: function(faces) {
-					console.log(faces);
-					//for each face create a new image and stuff
+					$(img).faceDetection({ complete: function(faces) {
+						console.log(faces);
+						//for each face create a new image and stuff
 
-					for(var i = 0; i < faces.length; i++) {
-						tempcanvas.width = face.width;
-						tempcanvas.height = face.height;
+						for(var i = 0; i < faces.length; i++) {
+							tempcanvas.width = face.width;
+							tempcanvas.height = face.height;
 
-						tempcanvas.drawImage(mastercanvas, face.x, face.y, face.width, face.height);
+							tempcanvas.drawImage(mastercanvas, face.x, face.y, face.width, face.height);
 
-						var newimg = $(document.createElement('img'));
-						newimg.attr('src', tempcanvas.toDataURL("image/png"));
-						newimg.appendTo('img');
+							var newimg = $(document.createElement('img'));
+							newimg.attr('src', tempcanvas.toDataURL("image/png"));
+							newimg.appendTo('img');
 
-					}
+						}
 
-					
-				}});
-			}
-
-			function processImages() {
-				var images = $('img');
-
-				for(var i = 0; i < images.length; i++) {
-					processImage(images[i]);
+						
+					}});
 				}
-			}
 
-			processImages();
+				function processImages() {
+					var images = $('img');
+
+					for(var i = 0; i < images.length; i++) {
+						processImage(images[i]);
+					}
+				}
+
+				processImages();
+
+			}
 
  		</script>
  		<style>
