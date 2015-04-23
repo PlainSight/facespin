@@ -21,35 +21,33 @@
 
 			$(function() {
 
-				function processImage(img) {
-					console.log(img);
-					mastercontext.drawImage(img, 0, 0);
-
-					$(img).faceDetection({ complete: function(faces) {
-						console.log(faces);
-						//for each face create a new image and stuff
-
-						for(var i = 0; i < faces.length; i++) {
-							tempcanvas.width = face.width;
-							tempcanvas.height = face.height;
-
-							tempcanvas.drawImage(mastercanvas, face.x, face.y, face.width, face.height);
-
-							var newimg = $(document.createElement('img'));
-							newimg.attr('src', tempcanvas.toDataURL("image/png"));
-							newimg.appendTo('img');
-
-						}
-
-						
-					}});
-				}
-
 				function processImages() {
 					var images = $('img');
 
+					console.log(images);
+
 					for(var i = 0; i < images.length; i++) {
-						processImage(images[i]);
+
+						mastercontext.drawImage(images[i], 0, 0);
+
+						$(images[i]).faceDetection({ complete: function(faces) {
+							console.log(faces);
+							//for each face create a new image and stuff
+
+							for(var i = 0; i < faces.length; i++) {
+								tempcanvas.width = face.width;
+								tempcanvas.height = face.height;
+
+								tempcanvas.drawImage(mastercanvas, face.x, face.y, face.width, face.height);
+
+								var newimg = $(document.createElement('img'));
+								newimg.attr('src', tempcanvas.toDataURL("image/png"));
+								newimg.appendTo('img');
+
+							}
+							
+						}}); 
+
 					}
 				}
 
