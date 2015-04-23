@@ -1,7 +1,7 @@
 <html>
  	<head>
  		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
-		<script src="http://plainsight.co.nz/jquery.facedetection.min.js"></script> 
+		<script src="facedetection.js"></script> 
  	</head>
  	<body>
 
@@ -10,7 +10,7 @@
  		<canvas id="tempcanvas">
  		</canvas>
 
- 		<img src="http://plainsight.co.nz/faces.jpg" crossorigin="anonymous">
+ 		<img src="faces.jpg" crossorigin="anonymous">
 
 
  		<script>
@@ -19,7 +19,7 @@
 			var mastercontext = mastercanvas.getContext('2d');
 			var tempcontext = tempcanvas.getContext('2d');
 
-			window.onload = function() {
+			$(function() {
 
 				function processImage(img) {
 					console.log(img);
@@ -55,7 +55,7 @@
 
 				processImages();
 
-			}
+			});
 
  		</script>
  		<style>
